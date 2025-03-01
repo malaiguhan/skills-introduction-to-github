@@ -9,5 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - id: name
+        env:
+          GITHUB_TOKEN : ${{GITHUB_TOKEN}}
         run: |
           echo "This is my action"
+          echo "${{GITHUB_TOKEN}}
+  
