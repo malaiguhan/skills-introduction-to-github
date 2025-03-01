@@ -9,9 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     environment: test
     steps: 
-      - id: name
+      - id: set_name
+        name: Set the name
         run: |
           echo "This is my action"
-          echo "${{ secrets.GITHUB_TOKEN }}"
-          echo "${{ toJSON(github.event) }}"
+          echo "name=malai" >> $GITHUB_ENV
+      - id: get_name
+        name: Get the name
+        run: |
+          echo $name
   
