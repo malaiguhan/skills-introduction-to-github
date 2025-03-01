@@ -4,18 +4,25 @@ on:
   workflow_dispatch
 
 jobs:
-  print-hello-world:
+  set-input:
     name: Print Hello world
     runs-on: ubuntu-latest
     environment: test
+    outputs:
+      hello_output: ${{ steps.set_name.outputs.name }}
     steps: 
       - id: set_name
         name: Set the name
         run: |
           echo "This is my action"
-          echo "name=malai" >> $GITHUB_OUTPUT
-      - id: get_name
-        name: Get the name
-        run: |
-          echo ${{ steps.set_name.outputs.name }}
+          echo "name=malai_guhan" >> $GITHUB_OUTPUT
+
+  get-output:
+    name: Get the output from previous step
+    runs-on: ubuntu-latest
+    needs: set-input
+    steps:
+      - id: print-out
+        name: Print the output
+        run: echo ${{ needs.set-input.outputs.hello_output }}
   
