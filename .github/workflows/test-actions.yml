@@ -10,9 +10,9 @@ jobs:
     steps: 
       - id: name
         env:
-          JAVA_VERSION: 1.8
+          EVENT_INFO: ${{ toJSON(github.event) }}
         run: |
           echo "This is my action"
           echo "${{ secrets.GITHUB_TOKEN }}"
-          echo "$JAVA_VERSION"
+          echo "$EVENT_INFO"
   
