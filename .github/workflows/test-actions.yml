@@ -1,0 +1,13 @@
+name: test the actions
+
+on:
+  workflow-dispatch
+
+jobs:
+  print-hello-world:
+    name: Print Hello world
+    runs-on: ubuntu-latest
+    steps: 
+      - id: name
+        runs: |
+          echo "This is my action"
