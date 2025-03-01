@@ -10,10 +10,8 @@ jobs:
     environment: test
     steps: 
       - id: name
-        env:
-          EVENT_INFO: ${{ toJSON(github.event) }}
         run: |
           echo "This is my action"
           echo "${{ secrets.GITHUB_TOKEN }}"
-          echo "$EVENT_INFO"
+          echo "${{ toJSON(github.event) }}"
   
