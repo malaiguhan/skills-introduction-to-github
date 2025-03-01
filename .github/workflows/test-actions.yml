@@ -9,7 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - id: name
+        env:
+          JAVA_VERSION: 1.8
         run: |
           echo "This is my action"
           echo "${{ secrets.GITHUB_TOKEN }}"
+          echo "$JAVA_VERSION"
   
