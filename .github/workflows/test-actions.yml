@@ -13,9 +13,9 @@ jobs:
         name: Set the name
         run: |
           echo "This is my action"
-          echo "name=malai" >> $GITHUB_ENV
+          echo "name=malai" >> $GITHUB_OUTPUT
       - id: get_name
         name: Get the name
         run: |
-          echo $name
+          echo ${{ steps.set_name.outputs.name }}
   
